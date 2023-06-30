@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('/fonts/Oswald-Medium.ttf');
+}
+
+body{
+    font-family: "Oswald";
+
+}
+.button-bouncy{
+    animation: bouncy 1s infinite;
+}
+@keyframes bouncy {
+    0% {
+      transform: scale(1) translateY(0);
+    }
+    50% {
+      transform: scale(1) translateY(-10px);
+    }
+    100% {
+      transform: scale(1) translateY(0);
+    }
+  }

@@ -1,0 +1,7 @@
+.open {
+    height: 250px; /* Adjust the height as needed */
+    transition: height 0.3s ease-in-out;
+    background-color: red;
+  }
+  
+  
