@@ -16,7 +16,11 @@ const Contact = () => {
 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className=''>
+        <div>
+            <div className=''>
+               
+            </div>
+            <form onSubmit={handleSubmit(onSubmit)} className=''>
             <div className=''>
             <div className="form-control">
                 <label className="label">
@@ -41,6 +45,7 @@ const Contact = () => {
             <input type="submit" className='btn btn-outline my-3 text-white' />
             </div>
         </form>
+        </div>
     );
 };
 
