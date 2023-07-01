@@ -27,7 +27,7 @@
     border-top-left-radius: 20px;
 }
 .myCard-img:hover{
-    transform: translatey(-200px);
+    animation: scrollImg 1s ease-out 1;
 }
 .myCard-links{
     border: 1px solid blanchedalmond;
@@ -38,12 +38,12 @@
 
 @keyframes scrollImg {
     0%{
-
+        transform: translatey(0px);
     }
     50%{
-
+        transform: translatey(-150px);
     }
     100%{
-        
+        transform: translatey(-300px);
     }
 }
