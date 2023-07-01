@@ -9,14 +9,14 @@ const Navbar = () => {
           
     }
     return (
-        <div className="fixed mt-0 z-[100] bg-blur bg-slate-400 w-full">
+        <div className="fixed mt-0 z-[100] w-full blurme">
             <div className="h-[80px] flex justify-center items-center">
             <div className="flex justify-between items-center gap-10">
                 <div className="text-gray-300 font-serif">
                 Nurul Absar imon
                 </div>
                 <div>
-                    <button className="btn btn-primary" onClick={downloadcv}>
+                    <button className="btn btn-outline btn-secondary font-serif text-blue-700" onClick={downloadcv}>
                         Download CV
                     </button>
                 </div>

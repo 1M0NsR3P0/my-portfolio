@@ -39,7 +39,7 @@ const Home = () => {
 
     <div className={`w-full 
         
-        
+        bg-fixed
         bg-no-repeat
         bg-cover
         ${isMobile?'bg-left bg-[url("bg4.png")]':'bg-center bg-[url("bg8.png")]'}

@@ -1,0 +1,49 @@
+.myCard{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    background-color: rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 255, 0.338);
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+    height: 650px;
+    
+}
+.myCard-body{
+    border-radius: 20px;
+    background-color: rgba(188, 188, 188, 0.067);
+    backdrop-filter: blur(10px);
+    padding: 5px 0px;
+}
+.myCard:hover{
+    border: 1px solid rgba(0, 0, 255, 0.758);
+}
+.myCard-img-container{
+    margin: 0 auto;
+    height: 300px;
+    width: 98%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.myCard-img:hover{
+    transform: translatey(-200px);
+}
+.myCard-links{
+    border: 1px solid blanchedalmond;
+    padding: 0px 2px;
+    color: blueviolet;
+    border-radius: 8px;
+}
+
+@keyframes scrollImg {
+    0%{
+
+    }
+    50%{
+
+    }
+    100%{
+        
+    }
+}

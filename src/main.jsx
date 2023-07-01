@@ -8,6 +8,8 @@ import About from './Components/Pages/About';
 import Blog from './Components/Pages/Blog';
 import Contact from './Components/Pages/Contact';
 import Header from './Components/Pages/Home/Header/Header';
+import Skills from './Components/Pages/Skills';
+import Projects from './Components/Pages/Projects';
 
 const router = createBrowserRouter([
   {
@@ -28,11 +30,11 @@ const router = createBrowserRouter([
           },
           {
             path: '/skills',
-            element: <Blog/>
+            element: <Skills/>
           },
           {
             path: '/projects',
-            element: <Blog/>
+            element: <Projects/>
           },
           {
             path: '/contact',

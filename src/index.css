@@ -6,6 +6,10 @@
     font-family: 'Oswald';
     src: url('/fonts/Oswald-Medium.ttf');
 }
+.blurme{
+  background-color: rgb(0, 0, 0, 0, 8);
+  backdrop-filter: blur(10px);
+}
 
 body{
     font-family: "Oswald";
