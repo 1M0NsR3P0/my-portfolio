@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Outlet } from "react-router-dom";
+import { DarkModeContext } from "../Utilities/DarkmodeContext";
 
 
 const Main = () => {
-    const storedMode = localStorage.getItem('mode');
-    const [darkMode, setDarkMode] = useState(localStorage.getItem('mode'));
-  
-    useEffect(() => {
-    setDarkMode(!localStorage.getItem('mode'))
-    }, [darkMode]);
+    const {darkMode} = useContext(DarkModeContext)
     return (
         <div
-            className={`z-[-10]  ${darkMode?'mybg':'darkmode'}`} 
+            className={`z-[-10] ${darkMode?'mybg':'darkmode'}`} 
         >
 
             <Outlet></Outlet>

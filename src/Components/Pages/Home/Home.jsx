@@ -12,7 +12,7 @@ import { DarkModeContext } from '../../Utilities/DarkmodeContext';
 const Home = () => {
   const [isButtonListOpen, setIsButtonListOpen] = useState(false);
   const [isTrayOpen, setTrayOpen] = useState(false)
-  const [isDarkMode,setDarkmode] = useState(localStorage.getItem('mode')?localStorage.getItem('mode'):true)
+  const [isDarkMode, setDarkMode] = useState(localStorage.getItem('mode') === 'true');
   const navigate = useNavigate(null)
   const [shouldBounch, setBounch] = useState(true)
   const [isMobile, setMobile] = useState(window.innerWidth < 768);
@@ -38,18 +38,16 @@ const Home = () => {
     navigate(route)
     setTrayOpen(true)
   }
-  const {darkMode,toggleDarkMode} = useContext(DarkModeContext)
-
-
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext)
 
   useEffect(() => {
     localStorage.setItem('mode', isDarkMode.toString());
-  }, [isDarkMode, toggleDarkMode]);
-  
-  const manageDarkMode = ()=>{
-    toggleDarkMode()
+  }, [isDarkMode]);
+
+  const manageDarkMode = () => {
+    setDarkMode(!isDarkMode);
+    toggleDarkMode();
   }
-  
   return (
 
 
@@ -68,7 +66,7 @@ const Home = () => {
           </div>
           <div>
             <div className='fixed bottom-[2%] left-[85%] transform -translate-x-1/2 -translate-y-1/2'>
-              {isButtonListOpen && <div className='fixed bottom-[-100px] left-[40%] transform -translate-x-1/2 -translate-y-1/2'>
+              {isButtonListOpen && <div className='fixed bottom-[-130px] left-[40%] transform -translate-x-1/2 -translate-y-1/2'>
                 <div className='flex flex-col items-center gap-2'>
                   <div className='' >
                     <Button variant="contained" color="primary" onClick={() => navigatorToggle('/')} className='w-[100px] btnBg myButton flex flex-col '>
@@ -108,6 +106,17 @@ const Home = () => {
                         Contact
                       </span>
                       <ContactMail></ContactMail>
+                    </Button>
+                  </div>
+                  <div className=''>
+                    <Button variant="contained" color="primary" onClick={manageDarkMode} 
+                    className='w-[100px] myButton btnBg flex flex-col myButton' >
+                      <span className=''>
+                        DarkMode
+                      </span>
+                      {
+                        isDarkMode?<VisibilityOff/>:<VisibilityOutlined/>
+                      }
                     </Button>
                   </div>
                 </div>

@@ -31,7 +31,9 @@ const Navbar = () => {
                 <div className="h-[80px] flex justify-center items-center">
                 <div className="flex justify-between items-center gap-10">
                     <div className="text-gray-300 font-serif">
+                    <Link to="/">
                     <img src="/logo.png" alt="" className="w-full ml-5" />
+                    </Link>
                     </div>
                     <div className="mr-3">
                         <button className="myButton btn-info btn  font-serif text-white" onClick={downloadcv}>
