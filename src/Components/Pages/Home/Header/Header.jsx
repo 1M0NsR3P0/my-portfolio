@@ -26,8 +26,8 @@ const Header = () => {
                                 I have invested significant time and effort to excel in Frontend technologies during my web development journey. With a strong grasp of JavaScript, React JS, Firebase, Node JS, Express JS, and other relevant tools, I continuously stay updated with industry trends. Thriving in challenging environments that promote adaptability, I consistently exceed expectations.
                             </p>
                             <div className='flex justify-center items-center gap-5 p-5 m-3'>
-                                <button className='btn myButton text-white'>Contact Me</button>
-                                <button className='btn myButton text-white'>Hire Me</button></div>
+                                <button className='btn myButton text-white font-mono font-bold'>Contact Me</button>
+                                <button className='btn myButton text-white font-mono font-bold'>Hire Me</button></div>
                         </div>
                     </div>
                     <div className='bg-gray-500 flipper rounded-[50%] h-[350px] w-[350px] bg-opacity-[0.5] border-white border-[10px]'>
@@ -51,8 +51,8 @@ const Header = () => {
                                 </p>
                                 <div>
                                     <div className='flex justify-start items-center gap-5 p-5 m-3'>
-                                        <button className='btn myButton text-white font-mono'>Contact Me</button>
-                                        <button className='btn myButton text-white font-mono'>Hire Me</button>
+                                        <button className='btn myButton text-white font-mono font-bold'>Contact Me</button>
+                                        <button className='btn myButton text-white font-mono font-bold'>Hire Me</button>
                                     </div>
                                 </div>
                             </div>
