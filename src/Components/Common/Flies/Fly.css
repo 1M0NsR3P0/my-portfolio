@@ -1,0 +1,31 @@
+.effectedContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: fireFlies 100s ease-in-out infinite;
+}
+.effectedContainer2 {
+    position: absolute;
+    bottom: 0;
+    right : 0;
+    animation: fireFlies 100s ease-in-out infinite;
+}
+
+.effect {
+    background-color: rgba(255, 255, 255, 0.824);
+    border-radius: 40%;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 70px 15px;
+}
+
+@keyframes fireFlies {
+    0% {
+        transform: translate(0,0);
+    }
+    100% {
+        transform: translate(1000px,100vh);
+    }
+   
+}
+
