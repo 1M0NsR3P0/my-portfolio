@@ -15,9 +15,10 @@
     background-color: rgba(188, 188, 188, 0.067);
     backdrop-filter: blur(10px);
     padding: 5px 0px;
+    height: 340px;
 }
 .myCard:hover{
-    border: 1px solid rgba(0, 0, 255, 0.758);
+    border: 1px solid rgba(255, 217, 0, 0.962);
 }
 .myCard-img-container{
     margin: 0 auto;
@@ -32,7 +33,7 @@
 .myCard-links{
     border: 1px solid blanchedalmond;
     padding: 0px 2px;
-    color: blueviolet;
+    color: yellow;
     border-radius: 8px;
 }
 
@@ -40,10 +41,8 @@
     0%{
         transform: translatey(0px);
     }
-    50%{
-        transform: translatey(-150px);
-    }
+    
     100%{
-        transform: translatey(-300px);
+        transform: translatey(-200px);
     }
 }

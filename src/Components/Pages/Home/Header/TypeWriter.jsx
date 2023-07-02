@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Typewriter from 'typewriter-effect';
 
 const TypeWriter = () => {
-
+    const [isMobile, setMobile] = useState(window.innerWidth < 768);
 
     return (
-        <div className='text-3xl h-[50px]'>
+        <div className={`${!isMobile?'text-5xl':'text-2xl'} h-[50px]`}>
         <div  className='md:flex flex-col'>
   
             <Typewriter

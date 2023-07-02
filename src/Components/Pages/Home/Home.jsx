@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Fab, Button } from '@mui/material';
 import { ArrowDownward, ArrowUpward, Article, ContactMail, HomeMax, HomeMaxTwoTone, Person } from '@mui/icons-material';
+import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
+import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Navbar from '../../Common/Nav/Navbar';
 import './Home.css'
 
+
 const Home = () => {
   const [isButtonListOpen, setIsButtonListOpen] = useState(false);
   const [isTrayOpen, setTrayOpen] = useState(false)
-  const [isMobile, setMobile] = useState(window.innerWidth < 768);
   const navigate = useNavigate(null)
-  const [shouldBounch,setBounch] = useState(true)
+  const [shouldBounch, setBounch] = useState(true)
 
+  const [isMobile, setMobile] = useState(window.innerWidth < 768);
   useEffect(() => {
     const handleResize = () => {
       setMobile(window.innerWidth < 768);
@@ -32,22 +35,18 @@ const Home = () => {
     navigate(route)
     setTrayOpen(true)
   }
-  // bg-gradient-to-b from-blue-900 to-black 
-  {/* all other contents */ }
+  
   return (
 
 
-    <div className={`w-full 
-        
-        bg-fixed
-        bg-no-repeat
-        bg-cover
-        ${isMobile?'bg-left bg-[url("bg4.png")]':'bg-center bg-[url("bg8.png")]'}
-        min-h-screen flex items-center justify-center text-white`}>
+    <div className={`w-full bg-fixed bg-no-repeat bg-cover overflow-x-hidden
+    ${isMobile ? 'flex items-center justify-center' : ''}
+        ${isMobile ? 'bg-left bg-[url("/bg4.png")]' : 'bg-center bg-[url("bg8.png")]'}
+        min-h-screen text-white`}>
       {isMobile ? (
         <div className='w-full'>
 
-          <div className='w-full absolute top-0 '>
+          <div className='w-full '>
             <Navbar></Navbar>
           </div>
           <div className='w-[80%] text-center mx-auto'>
@@ -58,7 +57,7 @@ const Home = () => {
               {isButtonListOpen && <div className='fixed bottom-[-100px] left-[40%] transform -translate-x-1/2 -translate-y-1/2'>
                 <div className='flex flex-col items-center gap-2'>
                   <div className='' >
-                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/')} className='w-[100px] flex flex-col '>
+                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/')} className='w-[100px] btnBg myButton flex flex-col '>
                       <span className=''>
                         Home
                       </span>
@@ -66,23 +65,23 @@ const Home = () => {
                     </Button>
                   </div>
                   <div className='' >
-                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/skills')} className='w-[100px] flex flex-col '>
+                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/services')} className='w-[100px] btnBg myButton flex flex-col '>
                       <span className=''>
-                        Skills
+                        Services
                       </span>
-                      <HomeMax></HomeMax>
+                      <HomeRepairServiceIcon />
                     </Button>
                   </div>
                   <div className='' >
-                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/projects')} className='w-[100px] flex flex-col '>
+                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/projects')} className='w-[100px] btnBg myButton flex flex-col '>
                       <span className=''>
                         Projects
                       </span>
-                      <Person></Person>
+                      <AccountTreeOutlinedIcon />
                     </Button>
                   </div>
                   <div className=''>
-                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/About')} className='w-[100px] flex flex-col '>
+                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/About')} className='w-[100px] btnBg myButton flex flex-col '>
                       <span className=''>
                         About
                       </span>
@@ -90,7 +89,7 @@ const Home = () => {
                     </Button>
                   </div>
                   <div className=''>
-                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/contact')} className='w-[100px] flex flex-col '>
+                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/contact')} className='w-[100px] btnBg myButton flex flex-col '>
                       <span className=''>
                         Contact
                       </span>
@@ -103,7 +102,7 @@ const Home = () => {
                 color="primary"
                 aria-label="scroll-to-top"
                 onClick={toggleButtonList}
-              className={`${shouldBounch?'button-bouncy':''}`}
+                className={`${shouldBounch ? 'button-bouncy myButton btnBg' : 'myButton btnBg'}`}
               >
                 {!isButtonListOpen ? <ArrowUpward /> : <ArrowDownward />}
               </Fab>
@@ -111,23 +110,62 @@ const Home = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className=''>
           <div>
-            <div>
-              <div className='fixed bottom-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+            <div className=''>
+              <div>
+                <Navbar />
+              </div>
+              <div>
+                <Outlet />
+              </div>
+            </div>
+            <div className=''>
+              <div className=' fixed bottom-[0] left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                 <div className='flex flex-row items-center gap-4'>
-                  <Button variant="contained" color="primary">
-                    Button 1
-                  </Button>
-                  <Button variant="contained" color="primary">
-                    Button 2
-                  </Button>
-                  <Button variant="contained" color="primary">
-                    Button 3
-                  </Button>
+                  <div className='' >
+                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/')} className='w-[100px] myButton flex flex-col '>
+                      <span className=''>
+                        Home
+                      </span>
+                      <HomeMax></HomeMax>
+                    </Button>
+                  </div>
+                  <div className='' >
+                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/services')} className='w-[100px] myButton flex flex-col '>
+                      <span className=''>
+                        Services
+                      </span>
+                      <HomeRepairServiceIcon />
+                    </Button>
+                  </div>
+                  <div className='' >
+                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/projects')} className='w-[100px] myButton flex flex-col '>
+                      <span className=''>
+                        Projects
+                      </span>
+                      <AccountTreeOutlinedIcon />
+                    </Button>
+                  </div>
+                  <div className=''>
+                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/About')} className='w-[100px] myButton flex flex-col '>
+                      <span className=''>
+                        About
+                      </span>
+                      <Article></Article>
+                    </Button>
+                  </div>
+                  <div className=''>
+                    <Button variant="contained" color="primary" onClick={() => navigatorToggle('/contact')} 
+                    className='w-[100px] myButton flex flex-col myButton' >
+                      <span className=''>
+                        Contact
+                      </span>
+                      <ContactMail></ContactMail>
+                    </Button>
+                  </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -139,3 +177,5 @@ const Home = () => {
 };
 
 export default Home;
+
+

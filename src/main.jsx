@@ -10,6 +10,8 @@ import Contact from './Components/Pages/Contact';
 import Header from './Components/Pages/Home/Header/Header';
 import Skills from './Components/Pages/Skills';
 import Projects from './Components/Pages/Projects';
+import Services from './Components/Pages/Home/Services';
+import Error from './Components/Common/Error';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +31,8 @@ const router = createBrowserRouter([
             element: <About/>
           },
           {
-            path: '/skills',
-            element: <Skills/>
+            path: '/services',
+            element: <Services/>
           },
           {
             path: '/projects',
@@ -44,6 +46,10 @@ const router = createBrowserRouter([
       },
 
     ]
+  },
+  {
+    path:'/*',
+    element:<Error/>
   }
 ]);
 
