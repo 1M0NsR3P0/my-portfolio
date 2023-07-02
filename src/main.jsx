@@ -12,6 +12,7 @@ import Skills from './Components/Pages/Skills';
 import Projects from './Components/Pages/Projects';
 import Services from './Components/Pages/Home/Services';
 import Error from './Components/Common/Error';
+import { DarkModeProvider } from './Components/Utilities/DarkmodeContext';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <DarkModeProvider>
     <RouterProvider router={router} />
+    </DarkModeProvider>
   </React.StrictMode>
 );

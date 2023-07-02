@@ -1,27 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Fab, Button } from '@mui/material';
-import { ArrowDownward, ArrowUpward, Article, ContactMail, HomeMax, HomeMaxTwoTone, Person } from '@mui/icons-material';
+import { ArrowDownward, ArrowUpward, Article, ContactMail, HomeMax, HomeMaxTwoTone, PanoramaFishEyeSharp, Person, VisibilityOff, VisibilityOutlined } from '@mui/icons-material';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
 import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Navbar from '../../Common/Nav/Navbar';
 import './Home.css'
+import { DarkModeContext } from '../../Utilities/DarkmodeContext';
 
 
 const Home = () => {
   const [isButtonListOpen, setIsButtonListOpen] = useState(false);
   const [isTrayOpen, setTrayOpen] = useState(false)
+  const [isDarkMode,setDarkmode] = useState(localStorage.getItem('mode')?localStorage.getItem('mode'):true)
   const navigate = useNavigate(null)
   const [shouldBounch, setBounch] = useState(true)
-
   const [isMobile, setMobile] = useState(window.innerWidth < 768);
+
+
+  localStorage.setItem('mode',true)
   useEffect(() => {
     const handleResize = () => {
       setMobile(window.innerWidth < 768);
     };
 
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -35,13 +38,24 @@ const Home = () => {
     navigate(route)
     setTrayOpen(true)
   }
+  const {darkMode,toggleDarkMode} = useContext(DarkModeContext)
+
+
+
+  useEffect(() => {
+    localStorage.setItem('mode', isDarkMode.toString());
+  }, [isDarkMode, toggleDarkMode]);
+  
+  const manageDarkMode = ()=>{
+    toggleDarkMode()
+  }
   
   return (
 
 
     <div className={`w-full bg-fixed bg-no-repeat bg-cover overflow-x-hidden
     ${isMobile ? 'flex items-center justify-center' : ''}
-        ${isMobile ? 'bg-left bg-[url("/bg4.png")]' : 'bg-center bg-[url("bg8.png")]'}
+        ${isMobile ? 'bg-left bg-[url("/bg4.png")]' : 'bg-center bg-[url("/bg8.png")]'}
         min-h-screen text-white`}>
       {isMobile ? (
         <div className='w-full'>
@@ -162,6 +176,17 @@ const Home = () => {
                         Contact
                       </span>
                       <ContactMail></ContactMail>
+                    </Button>
+                  </div>
+                  <div className=''>
+                    <Button variant="contained" color="primary" onClick={manageDarkMode} 
+                    className='w-[100px] myButton flex flex-col myButton' >
+                      <span className=''>
+                        DarkMode
+                      </span>
+                      {
+                        isDarkMode?<VisibilityOff/>:<VisibilityOutlined/>
+                      }
                     </Button>
                   </div>
                 </div>

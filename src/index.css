@@ -6,7 +6,12 @@
   } */
 .mybg{
   background: rgb(0,52,110);
-  background: linear-gradient(63deg, rgba(0,52,110,1) 16%, rgba(0,103,255,1) 80%);}
+  background: linear-gradient(63deg, rgba(0,52,110,1) 16%, rgba(0,103,255,1) 80%);
+}
+.darkmode{
+  background-color: black !important;
+  color: white !important;
+}
 
 @font-face {
     font-family: 'Oswald';

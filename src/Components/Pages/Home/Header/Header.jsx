@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TypeWriter from './TypeWriter';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [isMobile, setMobile] = useState(window.innerWidth < 768);
@@ -14,6 +15,7 @@ const Header = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
     return (
         <>
             {isMobile ?
@@ -26,7 +28,7 @@ const Header = () => {
                                 I have invested significant time and effort to excel in Frontend technologies during my web development journey. With a strong grasp of JavaScript, React JS, Firebase, Node JS, Express JS, and other relevant tools, I continuously stay updated with industry trends. Thriving in challenging environments that promote adaptability, I consistently exceed expectations.
                             </p>
                             <div className='flex justify-center items-center gap-5 p-5 m-3'>
-                                <button className='btn myButton text-white font-mono font-bold'>Contact Me</button>
+                                <button className='btn myButton text-white font-mono font-bold'><Link to="/contact">Contact Me</Link></button>
                                 <button className='btn myButton text-white font-mono font-bold'>Hire Me</button></div>
                         </div>
                     </div>
@@ -51,7 +53,7 @@ const Header = () => {
                                 </p>
                                 <div>
                                     <div className='flex justify-start items-center gap-5 p-5 m-3'>
-                                        <button className='btn myButton text-white font-mono font-bold'>Contact Me</button>
+                                        <button className='btn myButton text-white font-mono font-bold'><Link to="/contact">Contact Me</Link></button>
                                         <button className='btn myButton text-white font-mono font-bold'>Hire Me</button>
                                     </div>
                                 </div>

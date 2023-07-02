@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [isMobile,setMobile] = useState(window.innerWidth < 768);
@@ -46,7 +47,9 @@ const Navbar = () => {
                 <div className=" fixed mt-0 top-0 h-[80px] z-[100] w-full blurme flex justify-center items-center">
                 <div className=" justify-around gap-10 h-[80px] z-[100] w-full blurme flex  items-center">
                     <div className="text-gray-900 font-serif">
+                    <Link to="/">
                     <img src="/logo.png" alt="" className="w-full" />
+                    </Link>
                     </div>
                     <div>
                         <button className="myButton btn  font-serif text-white" onClick={downloadcv}>
