@@ -12,24 +12,23 @@ import { DarkModeContext } from '../../Utilities/DarkmodeContext';
 const Home = () => {
   const [isButtonListOpen, setIsButtonListOpen] = useState(false);
   const [isTrayOpen, setTrayOpen] = useState(false)
-  const [isDarkMode, setDarkMode] = useState(localStorage.getItem('mode') === 'true');
   const navigate = useNavigate(null)
   const [shouldBounch, setBounch] = useState(true)
   const [isMobile, setMobile] = useState(window.innerWidth < 768);
-
-
-  localStorage.setItem('mode',true)
+  
+  
+  localStorage.getItem('mode')?'':localStorage.setItem('mode','false')
   useEffect(() => {
     const handleResize = () => {
       setMobile(window.innerWidth < 768);
     };
-
+    
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
+  
   const toggleButtonList = () => {
     setIsButtonListOpen(!isButtonListOpen);
     setBounch(isButtonListOpen)
@@ -39,15 +38,11 @@ const Home = () => {
     setTrayOpen(true)
   }
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext)
-
-  useEffect(() => {
-    localStorage.setItem('mode', isDarkMode.toString());
-  }, [isDarkMode]);
-
-  const manageDarkMode = () => {
-    setDarkMode(!isDarkMode);
-    toggleDarkMode();
-  }
+    
+    const manageDarkMode = () => {
+        toggleDarkMode(localStorage.getItem('mode').toString()==='true');
+    }
+   
   return (
 
 
@@ -115,7 +110,7 @@ const Home = () => {
                         DarkMode
                       </span>
                       {
-                        isDarkMode?<VisibilityOff/>:<VisibilityOutlined/>
+                        darkMode?<VisibilityOff/>:<VisibilityOutlined/>
                       }
                     </Button>
                   </div>
@@ -194,7 +189,7 @@ const Home = () => {
                         DarkMode
                       </span>
                       {
-                        isDarkMode?<VisibilityOff/>:<VisibilityOutlined/>
+                        darkMode?<VisibilityOff/>:<VisibilityOutlined/>
                       }
                     </Button>
                   </div>
